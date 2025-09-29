@@ -128,7 +128,7 @@ func StartDetachedSession(sessionID, target string) error {
     if sessionID == "" || target == "" {
         return errors.New("missing session identifier or target")
     }
-    cmd := exec.Command("screen", "-dmS", sessionID, "ssh", target)
+    cmd := exec.Command("screen", "-dmS", sessionID, "ssh", "-tt", target)
     return cmd.Run()
 }
 
